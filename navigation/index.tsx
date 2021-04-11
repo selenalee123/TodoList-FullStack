@@ -5,8 +5,18 @@ import { ColorSchemeName } from 'react-native';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../types';
-import BottomTabNavigator from './BottomTabNavigator';
+// import BottomTabNavigator from './BottomTabNavigator';
+import ProjectsScreen from '../screens/ProjectsScreen';
+import ToDoScreen from '../screens/ToDoScreen';
+import SignInScreen from '../screens/SignInScreen';
+import SignUpScreen from '../screens/SignUpScreen';
+import SplashScreen from '../screens/SplashScreen';
+
+
+
+
 import LinkingConfiguration from './LinkingConfiguration';
+
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -26,8 +36,16 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+    <Stack.Navigator screenOptions={{ headerShown: true }}>
+      {/* <Stack.Screen name="Root" component={BottomTabNavigator} /> */}
+      <Stack.Screen name="SplashScreen" component={SplashScreen} />
+
+      <Stack.Screen name="SignIn" component={SignInScreen} options={{ title: 'Sign In' }} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} options={{ title: 'Sign Up' }} />
+
+
+      <Stack.Screen name="Home" component={ProjectsScreen} />
+      <Stack.Screen name="ToDoScreen" component={ToDoScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );
