@@ -23,4 +23,4 @@ Kim Kim Ly
 Connect with me through Linkedln: https://www.linkedin.com/in/kimkimly123/
 
 
-![.](assets/demoapp/Demo_todo.gif)
+![.](assets/demo/Demo_todo.gif)
