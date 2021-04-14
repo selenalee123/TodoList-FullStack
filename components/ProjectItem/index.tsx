@@ -4,24 +4,23 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 
-
-interface ProjectItemProps{
-    project:{
-        id:string,
-        title:string,
-        createdAt:string
-    }
+interface ProjectItemProps {
+  project: {
+    id: string,
+    title: string,
+    createdAt: string,
+  }
 }
 
-const ProjectItem = ({project}:ProjectItemProps) => {
+const ProjectItem = ({ project }: ProjectItemProps) => {
+  const navigation = useNavigation();
 
+  const onPress = () => {
+    navigation.navigate('ToDoScreen', { id: project.id })
+  }
 
-    const onPress = () => {
-
-    }
-
-    return (
-        <Pressable onPress={onPress} style={styles.root}>
+  return (
+    <Pressable onPress={onPress} style={styles.root}>
       <View style={styles.iconContainer}>
         <MaterialCommunityIcons name="file-outline" size={24} color="grey" />
       </View>
@@ -30,9 +29,7 @@ const ProjectItem = ({project}:ProjectItemProps) => {
         <Text style={styles.time}>{project.createdAt}</Text>
       </View>
     </Pressable>
-    )
+  )
 }
 
 export default ProjectItem
-
-
